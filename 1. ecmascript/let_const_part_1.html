@@ -1,0 +1,70 @@
+<html>
+    <body>
+        <!--var-->
+        <script>
+            //escopos: global, função
+
+            var serie = 'The Big Bang Theory';
+            console.log('escopo global gobal: ', serie);
+        
+            function escopoFuncao() {
+                console.log('escopo funcao - global: ', serie);
+                var serie2 = 'How I Met Your Mother';
+            }
+
+            //gerar error de variavel fora do escorpo serie2
+            // console.log('escopo global - função: ', serie2);
+
+            escopoFuncao();
+
+            if(true) {
+                console.log('escopo bloco - global: ', serie);
+                // console.log('escopo global - função: ', serie2); -da erro
+            }
+
+            //podemos criar um if sem comando apenas com {} exemplo
+            {
+                console.log('escopo bloco (sem comando): ', serie);
+                // console.log('escopo global - função: ', serie2); da erro
+            }
+            
+        
+        </script>
+            
+        <!--var-->
+        <script>
+            //escopo de bloco
+
+            function escopoFuncao() {
+                // o bloco está dentro do escopo da função quando sobre elevação é
+                // apenas elevada para o escopo da função.
+                if(true){
+                    if(true){
+                    var serie = 'Game Of Thrones'
+                    }
+                }
+                console.log('escopo funcao variavel escopo de bloco',serie);
+            }
+            escopoFuncao();
+            //independente da profundidade sobre elevação para o escopo global
+            if(true){
+                if(true){
+                    var serie = 'Game Of Thrones'
+                }
+            }
+
+            //é acessada no escopo global pois o bloco foi defindo no escodo global
+            //devido a elevação a variavel pode ser acessa no escopo global
+            console.log(serie);
+            
+        </script>
+
+        <!--
+                ** ANOTAÇÕES * aula 9 *
+                 O que é hoinsting (elevação) é quando uma variável definida como var no escorpo de 
+                 um bloco e o bloco no escorpo global ela pode ser acessada no escorpo global, assim como 
+                 uma variável declarada com var no escorpo de um bloco e o bloco declarado dentro de um escorpo de
+                 uma função essa variável pode ser acessada no escorpo da função!!!. 
+        -->
+    </body>
+</html>
