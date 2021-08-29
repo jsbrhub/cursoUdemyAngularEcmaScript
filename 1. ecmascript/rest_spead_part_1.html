@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <div id="teste"></div>
+        <script>
+            //contexto spead -> expandir string array objetos
+
+            //expandir strings:
+            let tituloArtigo = 'Como utilizar o operador rest-spead';
+            // console.log(tituloArtigo);
+            // console.log(...tituloArtigo);
+            // console.log([...tituloArtigo]);
+            // console.log([{...tituloArtigo}]);
+
+            //aray
+            let listaCursos1 = ['nodeJS e mongoDB', 'Angular'];
+            let listaCursos2 = ['Solid', 'Lavavel'];
+            let listaCursos3 = ['Web Completo', 'Banco de Dados'];
+
+            listaCompleta = [
+                            'Web Completo',
+                            'Banco de dados',
+                             ...listaCursos2,
+                             ...listaCursos1
+                        ];
+
+            // obbjeto
+            let pessoas = {nome: 'pedro', idade: 32}
+            let cadastroCompleto = {endereco: 'Rua Abc', ...pessoas}
+            console.log(cadastroCompleto);
+
+
+            console.log([{listaCompleta}]);
+        </script>
+    </body>
+</html>
