@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <div id="teste"></div>
+        <script>
+            //array
+            let arr = [10, 20, 30, 40];
+            let [ a, f, ...x ] = arr;//salvando o resto do array na variavel x condensando operador rest
+            // console.log(a,f,x);
+            let obj = {
+                a:10,
+                b:20,
+                c:30,
+                d:40
+            }
+
+            // objeto
+            let{ a: p, c: h, ...resto } = obj;
+            console.log(p, h,resto);
+
+        </script>
+    </body>
+</html>
