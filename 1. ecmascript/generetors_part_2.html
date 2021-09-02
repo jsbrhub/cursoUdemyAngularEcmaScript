@@ -1,7 +1,7 @@
 <html>
-    <body>
-        <div id="teste"></div>
-        <!-- <script>
+
+<body>
+    <!-- <script>
 
             function* conversar() {
                 //escopo próprio 
@@ -32,47 +32,70 @@
 
         </script> -->
 
-         <script>
+    <script>
 
-            function* conversar() {
-                //1 bloco
-                let opcao = yield 'E ai tudo bem?'
+        function* conversar() {
+            //1 bloco
+            let opcao = yield 'E ai tudo bem?'
 
-                //2 bloco
-                //parametro enviado no next
-                if(opcao == 'sim') {
-                    yield 'Ótimo Fico Feliz'
+            //2 bloco
+            //parametro enviado no next
+            if (opcao == 'sim') {
+                yield 'Ótimo Fico Feliz'
 
-                    opcao = yield 'Como eu posso te ajudar? quer uma piada?'
-                        if(opcao == 'sim') {
-                            console.log(opcao)
-                        }
-                        else {
-                            yield 'digite 1 para compras 2 para vendas ou 3 para falar com um atendente'
-                        }
+                opcao = yield 'Como eu posso te ajudar? quer uma piada?'
+                if (opcao == 'sim') {
+                    //fetch função nativa js para fazer requisisão http pode recuperar a resposta
+                    fetch('dados/piadas.json')
+                            .then(resposta => resposta.json())
+                            .then(piadas => {
+                                let idx = Math.floor((Math.random() * 10))
+                                let piada = piadas[idx]
 
-                        yield 'teste ate esse ponto'
+                                console.log(piada.piada)
+
+                                setTimeout(() => {
+                                    console.log(piada.resposta)
+                                    console.log('kkkkkkkkk muito boa né!')
+                                }, 4000)
+                            })
+
+                            yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
                 }
                 else {
-                    yield 'Respeite fundo e va se foder'
-
                     yield 'digite 1 para compras 2 para vendas ou 3 para falar com um atendente'
-
                 }
+
+                yield 'teste ate esse ponto'
+            }
+            else {
+                yield 'Respeite fundo e va se foder'
+
+                yield 'digite 1 para compras 2 para vendas ou 3 para falar com um atendente'
+
             }
 
-            let conversa = conversar();
-            
-            function acao() {
-                let resposta = document.getElementById('resposta').value;
-                let iteracao = conversa.next(resposta);
-                console.log(iteracao);
-            }
+            return 'Atendimento finalizado';
+        }
 
-        </script>
-        <div id="teste">
-            <button type="button" onclick="acao()">Avançar</button>
-            Resposta: <input type="text" id="resposta">
-        </div>
-    </body>
+        let conversa = conversar();
+
+        function acao() {
+            let resposta = document.getElementById('resposta').value
+                
+                let iteracao = conversa.next(resposta)
+                console.log(iteracao)
+
+                if(iteracao.done) {
+                    document.getElementById('teste').style.display = 'none'
+                }
+        }
+
+    </script>
+    <div id="teste">
+        <button type="button" onclick="acao()">Avançar</button>
+        Resposta: <input type="text" id="resposta">
+    </div>
+</body>
+
 </html>
