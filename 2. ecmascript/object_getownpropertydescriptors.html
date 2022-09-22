@@ -18,16 +18,16 @@
             // console.log(Object.getOwnPropertyDescriptors(objeto));
 
             //****Descritor Writable: quando definido como false o valor da propriedade nao poderá ser modificada
-            // Object.defineProperty(objeto, 'nome', {
+            // Object.defineProperty(objeto, 'nome', { // recupera a propriedade do objeto para alterar o writable
             //     value: 'Jessyca Borges',
-            //     writable: false
+            //     writable: false //modificando para false não será mais possível alterar o valor da propriedade
             // })
 
             // console.log(Object.getOwnPropertyDescriptors(objeto));
 
             //****descritor Enumerable: quando o respectivo valor é definido como false a propriedade em questão nao é exibida em laços de repetição
             // for (let propriedade in objeto) {
-            //     console.log(propriedade, objeto[propriedade]);
+            //     console.log(propriedade, objeto[propriedade]);// é possível acessar a propriedade do objeto atraves do for de let propriedade
             // }
 
             // Object.defineProperty(objeto, 'hobbies', {
@@ -51,15 +51,14 @@
             // Object.defineProperty(objeto, 'pais', {
             //     configurable: false
             // })
+            
+            // console.log(Object.getOwnPropertyDescriptors(objeto));
 
             Object.defineProperty(objeto, 'pais', {
                 configurable: false
             })
 
             console.log(Object.getOwnPropertyDescriptors(objeto));
-
-
-            // console.log(Object.getOwnPropertyDescriptors(objeto));
 
             // console.log('-----------------------------')
             // for (let propriedade in objeto) {
