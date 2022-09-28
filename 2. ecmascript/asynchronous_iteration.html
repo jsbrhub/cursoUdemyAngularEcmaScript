@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <script>
+            let processos = [1,2,3,4,5];
+            //proccessamentos assicrono
+
+            let inntecaoAssincrona = async () => {
+                for(let processo of processos) {
+                
+                    //para cada repetição do for aguardar o processamento assicrono 
+                    await new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            console.log('processamento assicrono')
+                            resolve();
+                        }, 2000)
+                    });
+
+                    console.log(processo);
+            }
+
+        }
+
+        inntecaoAssincrona();
+        </script>
+    </body>
+</html>
