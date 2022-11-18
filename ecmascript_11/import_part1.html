@@ -1,0 +1,42 @@
+<html>
+
+    <body>
+        <button type="button" id="btnSaudacao">Saudacao</button>
+        <input type="text" id="cep" placeholder="CEP">
+        <button type="button" id="btnCep">Buscar</button>
+    </body>
+    
+    <script type="module">
+        // importação estática o módulo completo carrega junto com a página, causando lentidao
+        // import {saudacao, getEnderecoByCep } from '../import/lib.mjs'
+       
+        // document.querySelector('#btnSaudacao1').addEventListener('click', () => {
+        //     // importacao do módulo dinamico
+        //     import('../import/lib.mjs')
+        //             .then(mod => {
+        //                 console.log(mod.saudacao())
+        //             })   
+        // })
+
+        // utilizando o async await
+        document.querySelector('#btnSaudacao').addEventListener('click', async () => {
+            // importacao do módulo dinamico
+            const modulo = await import('../import/lib.mjs')
+                console.log(modulo.saudacao())
+        })
+
+        document.querySelector('#btnCep').addEventListener('click', async () => {
+            
+            let cep = document.querySelector('#cep').value
+
+            if(cep.length == 8) {
+                // importacao do módulo dinamico
+                const modulo = await import('../import/lib.mjs')
+                modulo.getEnderecoByCep(cep)
+                        .then(dados => console.log(dados))
+            }
+        })
+        // o metodo fecth retorna uma promisse
+    </script>
+
+</html>

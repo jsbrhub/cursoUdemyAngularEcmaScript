@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <script>
+            let nomes = [
+                'joao,jose,maria',
+                'Sandra, Paulo',
+                'Antonia, Fernanda, Marcos'
+            ]
+            console.log(nomes);
+
+            let nomesMap = nomes.map(item => {
+                return item.split(',')
+            })
+
+            let nomesFlatMap = nomes.flat(item => {
+                return item.split(',')
+            })
+            
+
+            console.log(nomesFlatMap);
+
+        </script>
+    </body>
+</html>

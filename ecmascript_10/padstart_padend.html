@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <script>
+            //padStart (preenchimento a esquerda)
+            let codigo = '1000';
+            // expectativa 00000010000
+            // parametro 1 quantidade de caracteres
+            // parametro 2 caractere que vai preencher
+            codigo = codigo.padStart(10, 'tyu');
+            console.log(codigo);
+
+            let codigo2 = '8888'
+            //padStart (preenchimento acrescentando a direita)
+            codigo2 = codigo2.padEnd(10, '*');
+            console.log(codigo2);
+        </script>
+    </body>
+</html>

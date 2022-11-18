@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <div id="teste"></div>
+        <script>
+           // contexto rest -> para condensar parametros em funções ou metodos
+           function soma(...params) {
+               resultado = 0;
+               params.forEach(element => (resultado += element));
+            //    console.log(params)
+               return resultado;
+           }
+           //quando não se sabe a quatnidade de parametros a serem enviadas para função se condensa os parametros
+           soma(5,7,49,56);
+           let x = resultado;
+        //    console.log(x);
+
+           function multiplicacao(m,  ...n) {
+                resultado = 0;
+                n.forEach(element => resultado += element*m);
+                // console.log(m);
+                // console.log(n);
+                return resultado
+           }
+
+           let retorno = multiplicacao(5,10,20,30,40);
+           console.log(retorno);
+        </script>
+    </body>
+</html>
